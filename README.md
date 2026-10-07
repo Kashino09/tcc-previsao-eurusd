@@ -91,25 +91,36 @@ Métricas no conjunto de teste (menor é melhor):
 - Opção de abstenção, em que o modelo não emite previsão quando a incerteza é alta.
 
 # Estrutura do Repositório
-```
-tcc-previsao-eurusd/
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── notebooks/
-│   └── tcc_cambio_usdeur.ipynb
-├── figuras/
-└── apresentacao/
-```
+| Arquivo | Descrição |
+|---|---|
+| `tcc-cambio-usdeur.ipynb` | Notebook completo, da coleta dos dados ao acompanhamento prospectivo |
+| `requirements.txt` | Bibliotecas usadas no projeto |
+| `Apresentação MBA.pdf` | Slides da apresentação do trabalho |
+| `01` a `11` (arquivos `.png`) | Figuras geradas pelo notebook |
+| `LICENSE` | Licença MIT |
+
+# Figuras
+**Comparação das métricas (t+1 e t+5)**
+
+![Comparação de métricas entre os modelos](06%20-%20Compara%C3%A7%C3%A3o%20M%C3%A9tricas.png)
+
+**Intervalos ACI em t+1 (últimos 120 dias)**
+
+![Intervalos ACI em t+1](07%20-%20ACI%20Intervalo%20t%2B1.png)
+
+**Validação fora da amostra (mai/2025 a set/2026)**
+
+![Validação fora da amostra](10%20-%20Valida%C3%A7%C3%A3o%20OOT.png)
 
 # Como Reproduzir
 1. Instale as dependências: `pip install -r requirements.txt`;
-2. Abra o notebook em `notebooks/` (ele foi escrito para rodar no Kaggle, então os caminhos `/kaggle/working` e `/kaggle/input` precisam ser ajustados para rodar em outro ambiente);
+2. Abra o notebook `tcc-cambio-usdeur.ipynb`. Ele foi escrito para rodar no Kaggle, então os caminhos `/kaggle/working` e `/kaggle/input` precisam ser ajustados para rodar em outro ambiente;
 3. Execute as células na ordem. Os dados do EUR/USD são baixados pelo `yfinance`, e por isso os dados brutos não estão neste repositório;
 4. Observações: a validação fora da amostra baixa os dados até a data de execução, então seus resultados mudam com o tempo; a rotina de acompanhamento prospectivo (seção 9.8) depende do estado salvo do dia anterior; e o treinamento do LSTM pode gerar números ligeiramente diferentes entre execuções, mesmo com sementes fixas.
 
 # Links
-- Notebook: [TCC Câmbio USD/EUR no Kaggle](https://www.kaggle.com/code/kelwinpaschoal/tcc-cambio-usdeur)
+- Notebook neste repositório: [`tcc-cambio-usdeur.ipynb`](tcc-cambio-usdeur.ipynb)
+- Notebook no Kaggle: [TCC Câmbio USD/EUR](https://www.kaggle.com/code/kelwinpaschoal/tcc-cambio-usdeur)
 - Dataset do acompanhamento prospectivo: [tcc-cambio-estado no Kaggle](https://www.kaggle.com/datasets/kelwinpaschoal/tcc-cambio-estado)
 
 # Autor
